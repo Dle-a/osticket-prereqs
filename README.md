@@ -6,6 +6,7 @@
 This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket.<br />
 
 
+<h2>Video Demonstration</h2>
 
 - ### [YouTube: How To Install osTicket with Prerequisites](https://www.youtube.com)
 
@@ -21,68 +22,108 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 <h2>List of Prerequisites</h2>
 
-- Enabled IIS internet information services
-- Installed web platform installer
-- Installed MSQL and setup username and password 
-- Installed C++ redistributable 
-- Installed Osticket and enabled permissions
+- Item 1
+- Item 2
+- Item 3
+- Item 4
+- Item 5
 
 <h2>Installation Steps</h2>
- The first is to create a virtual machine by going to https://portal.azure.com/. Setup your virtual machine with Windows 10 Pro, version 22H2. Note, create a virtual machine with atleast 2 vcpus and 16 gbs of memory.
 
- Conncet to the VM by using the public ip address the vm is setup with. You will connect using the remote desktop connection app.
+Begin by creating an Azure Virtual Machine Windows 10, 4 vCPUs,log into the VM with Remote Desktop,within the VM (osticket-vm), download the https://driand unzip it onto your desktop. The folder should be called “osTicket-Installation-Files”
+We will use the files in this folder to install osTicket and some of the dependencies.
+
+Install / Enable IIS in Windows WITH CGI
+World Wide Web Services -> Application Development Features -> [X] CGI
+
+From the “osTicket-Installation-Files” folder, install PHP Manager for IIS (PHPManagerForIIS_V1.5.0.msi)
+
+From the “osTicket-Installation-Files” folder install the Rewrite Module (rewrite_amd64_en-US.msi)
+
+Create the directory C:\PHP
+
+From the “osTicket-Installation-Files” folder, unzip PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip) into the “C:\PHP” folder
+
+From the “osTicket-Installation-Files” folder, install VC_redist.x86.exe.
+
+From the “osTicket-Installation-Files” folder, install MySQL 5.5.62 (mysql-5.5.62-win32.msi)
+Typical Setup ->
+Launch Configuration Wizard (after install) ->
+Standard Configuration ->
+Username: root
+Password: root
+
+Open IIS as an Admin
+
+Register PHP from within IIS (PHP Manager -> C:\PHP\php-cgi.exe)
+
+Reload IIS (Open IIS, Stop and Start the server)
+
+Install osTicket v1.15.8
+From the “osTicket-Installation-Files” folder, unzip “osTicket-v1.15.8.zip” and copy the “upload” folder into “c:\inetpub\wwwroot”
+Within “c:\inetpub\wwwroot”, Rename “upload” to “osTicket”
+
+Reload IIS (Open IIS, Stop and Start the server)
+
+Go to sites -> Default -> osTicket
+On the right, click “Browse *:80”
+
+Note that some extensions are not enabled
+Go back to IIS, sites -> Default -> osTicket
+Double-click PHP Manager
+Click “Enable or disable an extension”
+Enable: php_imap.dll
+Enable: php_intl.dll
+Enable: php_opcache.dll
+Refresh the osTicket site in your browser, observe the changes
+
+Rename: ost-config.php
+From: C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php
+To: C:\inetpub\wwwroot\osTicket\include\ost-config.php
+
+Assign Permissions: ost-config.php
+Disable inheritance -> Remove All
+New Permissions -> Everyone -> All
+
+Continue Setting up osTicket in the browser (click Continue)
+Name Helpdesk
+Default email (receives email from customers)
+
+From the “osTicket-Installation-Files” folder, install HeidiSQL.
+Open Heidi SQL
+Create a new session, root/root
+Connect to the session
+Create a database called “osTicket”
+
+Continue Setting up osTicket in the browser
+MySQL Database: osTicket
+MySQL Username: root
+MySQL Password: root
+Click “Install Now!”
+
+Congratulations, hopefully it is installed with no errors!
+Browse to your help desk login page: http://localhost/osTicket/scp/login.php
+
+End Users osTicket URL:
+http://localhost/osTicket/ 
+
+Clean up
+Delete: C:\inetpub\wwwroot\osTicket\setup
+Set Permissions to “Read” only: C:\inetpub\wwwroot\osTicket\include\ost-config.php
 
 
-![image](https://github.com/user-attachments/assets/38e9aa99-7aa9-4265-887c-6346f3772ca2)
 
-
-<img width="305" alt="image" src="https://github.com/user-attachments/assets/3e829718-c94e-41c8-b3af-599facad753d" />
-
-
-
- Once you have connected to your VM go to the control panel, from the control panel open up programs. Select, Turn Windows features on and off.
- 
- ) install / enable IIS in Windows with CGI and Common HTTP Features,
-install PHP Manager for IIS (PHPManagerForIIS_V1.5.o.msi)
-install the Rewrite Module (rewrite_amd64_en-US.msi)
-
-Create a new folder directory C:\PHP, From the “osTicket-Installation-Files” folder, install VC_redist.x86.exe.
-
-Download and install MySQL 5.5.62 (mysql-5.5.62-win32.msi) from the installation files. Within the MySQL setup wizard, click "I agree" and select a Typical install and Install. Launch the Configuration Wizard after the installation. Select Standard Configuration and select Install As Windows Service and make sure Launch the MySQL Server automatically is checked. For credentials, the username will be root and the password is Password1. In a practical setting, the credentials will be basic to where they can be easily guessed. For the purposes of this lab, the standard credentials root and Password1 will do.
-
-<img width="182" alt="image" src="https://github.com/user-attachments/assets/e4d66af6-9a93-4095-95db-80ac6c727ca3" />
-
-Open IIS as an Admin, register PHP from with IIS(PHP Manager -> C:\PHP\php-cgi.exe)
-
-<img width="488" alt="image" src="https://github.com/user-attachments/assets/ab12b610-a93f-4e5f-a280-2560065e7104" />
-
-
-
-
-
-
-5.)
-
-
-
-9.)
-
-Next, download and install MySQL 5.5.62 (mysql-5.5.62-win32.msi) from the installation files. Within the MySQL setup wizard, click "I agree" and select a Typical install and Install. Launch the Configuration Wizard after the installation. Select Standard Configuration and select Install As Windows Service and make sure Launch the MySQL Server automatically is checked. For credentials, the username will be root and the password is Password1. In a practical setting, the credentials will be basic to where they can be easily guessed. For the purposes of this lab, the standard credentials root and Password1 will do.
-
-
-
-<img width="161" alt="image" src="https://github.com/user-attachments/assets/61209dfa-9425-472f-817e-361dbb8e2241" />
 
 <p>
-<img width="727" alt="Annotation 2025-02-11 140738" src="https://github.com/user-attachments/assets/bda1ba45-4bbc-42de-bf21-52f65d7ca0a4" />
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p> From the installation files, download osTicket v1.15.8. Extract and copy the "upload" folder to the following path: c:\inetpub\wwwroot. Within the c:\inetpub\wwwroot folder, rename "upload" to "osTicket." Reload the IIS server afterwards.
+<p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 </p>
 <br />
 
 <p>
-<img width="632" alt="Annotation 2025-02-11 134000" src="https://github.com/user-attachments/assets/13bda1b6-cc3f-4e0f-a36d-13553100b986" />
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -90,9 +131,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <br />
 
 <p>
-<img width="711" alt="Annotation 2025-02-11 034549" src="https://github.com/user-attachments/assets/ed60c7b4-eb96-453c-a60a-47c6d5a5ec1e" />
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 </p>
 <br />
+
+
+
+
+
+
+
