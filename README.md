@@ -54,7 +54,6 @@ Download and install MySQL 5.5.62 (mysql-5.5.62-win32.msi) from the installation
 
 Open IIS as an Admin, register PHP from with IIS(PHP Manager -> C:\PHP\php-cgi.exe)
 
-From the installation files, download osTicket v1.15.8. Extract and copy the "upload" folder to the following path: c:\inetpub\wwwroot. Within the c:\inetpub\wwwroot folder, rename "upload" to "osTicket." Reload the IIS server afterwards.
 <img width="488" alt="image" src="https://github.com/user-attachments/assets/ab12b610-a93f-4e5f-a280-2560065e7104" />
 
 
@@ -77,7 +76,7 @@ Next, download and install MySQL 5.5.62 (mysql-5.5.62-win32.msi) from the instal
 <p>
 <img width="727" alt="Annotation 2025-02-11 140738" src="https://github.com/user-attachments/assets/bda1ba45-4bbc-42de-bf21-52f65d7ca0a4" />
 </p>
-<p>
+<p> From the installation files, download osTicket v1.15.8. Extract and copy the "upload" folder to the following path: c:\inetpub\wwwroot. Within the c:\inetpub\wwwroot folder, rename "upload" to "osTicket." Reload the IIS server afterwards.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 </p>
 <br />
