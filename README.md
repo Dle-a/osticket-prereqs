@@ -22,15 +22,31 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 <h2>List of Prerequisites</h2>
 
-- Item 1
-- Item 2
-- Item 3
-- Item 4
-- Item 5
-
+- Azure Virture Machine
+- Internet Information Services (IIS)
+- PHP Manager
+- Rewrite Module
+- VC Redist
+- MySQL
+- Heidi sql
+- osTicketv1.15.8
+- Link to downloads
+https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6
 <h2>Installation Steps</h2>
 
-Begin by creating an Azure Virtual Machine Windows 10, 4 vCPUs,log into the VM with Remote Desktop,within the VM (osticket-vm), download the https://driand, connect to the VM with its public ip address using remote desktop.  ![Screenshot 2025-02-19 074233](https://github.com/user-attachments/assets/680899fb-8562-4087-a8be-aac72dda136b),the files in this folder are needed to install osTicket and some of the dependencies.
+Begin by creating an Azure Virtual Machine Windows 10, 4 vCPUs,log into the VM with Remote Desktop,within the VM (osticket-vm), download the https://driand, connect to the VM with its public ip address using remote desktop.  ![Screenshot 2025-02-19 074233](https://github.com/user-attachments/assets/680899fb-8562-4087-a8be-aac72dda136b)
+
+
+
+
+![Screenshot 2025-02-10 152623](https://github.com/user-attachments/assets/318ec3d6-da4f-43eb-987f-59a920521bbc)
+
+
+
+
+
+
+The files in this folder are needed to install osTicket and some of the dependencies.
 
 Install / Enable IIS in Windows WITH CGI
 World Wide Web Services -> Application Development Features -> [X] CGI
@@ -53,6 +69,7 @@ From the “osTicket-Installation-Files” folder, install MySQL 5.5.62 (mysql-5
 Typical Setup ->
 Launch Configuration Wizard (after install) ->
 
+<img width="394" alt="Annotation 2025-02-11 022939" src="https://github.com/user-attachments/assets/d9bbe2e1-5fc7-4967-a790-69101d23dae6" />
 
 Open IIS as an Admin
 
