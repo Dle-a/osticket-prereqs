@@ -30,13 +30,16 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 <h2>Installation Steps</h2>
 
-Begin by creating an Azure Virtual Machine Windows 10, 4 vCPUs,log into the VM with Remote Desktop,within the VM (osticket-vm), download the https://driand unzip it onto your desktop. The folder should be called “osTicket-Installation-Files”
-We will use the files in this folder to install osTicket and some of the dependencies.
+Begin by creating an Azure Virtual Machine Windows 10, 4 vCPUs,log into the VM with Remote Desktop,within the VM (osticket-vm), download the https://driand, connect to the VM with its public ip address using remote desktop.  ![Screenshot 2025-02-19 074233](https://github.com/user-attachments/assets/680899fb-8562-4087-a8be-aac72dda136b),the files in this folder are needed to install osTicket and some of the dependencies.
 
 Install / Enable IIS in Windows WITH CGI
 World Wide Web Services -> Application Development Features -> [X] CGI
 
+![Screenshot 2025-02-19 075739](https://github.com/user-attachments/assets/45b30555-831c-4b64-b982-c010f32dd80b)
+
 From the “osTicket-Installation-Files” folder, install PHP Manager for IIS (PHPManagerForIIS_V1.5.0.msi)
+
+![Screenshot 2025-02-19 085811](https://github.com/user-attachments/assets/bf22c30d-5c74-4463-b2db-32599132cc66)
 
 From the “osTicket-Installation-Files” folder install the Rewrite Module (rewrite_amd64_en-US.msi)
 
@@ -49,9 +52,7 @@ From the “osTicket-Installation-Files” folder, install VC_redist.x86.exe.
 From the “osTicket-Installation-Files” folder, install MySQL 5.5.62 (mysql-5.5.62-win32.msi)
 Typical Setup ->
 Launch Configuration Wizard (after install) ->
-Standard Configuration ->
-Username: root
-Password: root
+
 
 Open IIS as an Admin
 
@@ -62,6 +63,7 @@ Reload IIS (Open IIS, Stop and Start the server)
 Install osTicket v1.15.8
 From the “osTicket-Installation-Files” folder, unzip “osTicket-v1.15.8.zip” and copy the “upload” folder into “c:\inetpub\wwwroot”
 Within “c:\inetpub\wwwroot”, Rename “upload” to “osTicket”
+<img width="711" alt="Annotation 2025-02-11 034549" src="https://github.com/user-attachments/assets/1afaa8a4-4825-48e5-a0b7-7166bf92a601" />
 
 Reload IIS (Open IIS, Stop and Start the server)
 
@@ -94,6 +96,7 @@ Open Heidi SQL
 Create a new session, root/root
 Connect to the session
 Create a database called “osTicket”
+![Screenshot 2025-02-19 084418](https://github.com/user-attachments/assets/062aab19-adde-460d-b609-5276b17f8c38)
 
 Continue Setting up osTicket in the browser
 MySQL Database: osTicket
@@ -102,15 +105,7 @@ MySQL Password: root
 Click “Install Now!”
 
 Congratulations, hopefully it is installed with no errors!
-Browse to your help desk login page: http://localhost/osTicket/scp/login.php
-
-End Users osTicket URL:
-http://localhost/osTicket/ 
-
-Clean up
-Delete: C:\inetpub\wwwroot\osTicket\setup
-Set Permissions to “Read” only: C:\inetpub\wwwroot\osTicket\include\ost-config.php
-
+<img width="632" alt="Annotation 2025-02-11 134000" src="https://github.com/user-attachments/assets/e8b5588a-217b-482b-8e11-eea2d8817f0a" />
 
 
 
