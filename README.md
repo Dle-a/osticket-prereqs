@@ -30,7 +30,9 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6
 <h2>Installation Steps</h2>
 
-Begin by creating an Azure Virtual Machine Windows 10, 4 vCPUs,log into the VM with Remote Desktop,within the VM (osticket-vm), download the https://driand, connect to the VM with its public ip address using remote desktop.  ![Screenshot 2025-02-19 074233](https://github.com/user-attachments/assets/680899fb-8562-4087-a8be-aac72dda136b)
+Begin by creating an Azure Virtual Machine Windows 10, 4 vCPUs,log into the VM with Remote Desktop,within the VM (osticket-vm), download the https://driand, connect to the VM with its public ip address using remote desktop. 
+
+![Screenshot 2025-02-19 074233](https://github.com/user-attachments/assets/680899fb-8562-4087-a8be-aac72dda136b)
 
 
 
