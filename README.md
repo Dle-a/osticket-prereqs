@@ -34,7 +34,9 @@ Begin by creating an Azure Virtual Machine Windows 10, 4 vCPUs,log into the VM w
 ---
 
 ![Screenshot 2025-02-19 074233](https://github.com/user-attachments/assets/680899fb-8562-4087-a8be-aac72dda136b)
----
+
+<br>
+
 
 
 
